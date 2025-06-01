@@ -1,0 +1,24 @@
+{
+	"name": "blogging-app",
+	"version": "1.0.0",
+	"description": "A simple blogging application built with Node.js, Express, and MongoDB.",
+	"main": "app.js",
+	"type": "module",
+	"scripts": {
+		"start": "node app.js",
+		"dev": "nodemon app.js"
+	},
+	"dependencies": {
+		"cookie-parser": "^1.4.7",
+		"dotenv": "^16.5.0",
+		"ejs": "^3.1.10",
+		"express": "^5.1.0",
+		"jsonwebtoken": "^9.0.2",
+		"mongoose": "^8.15.1",
+		"multer": "^2.0.0"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.10",
+		"prettier": "^3.5.3"
+	}
+}

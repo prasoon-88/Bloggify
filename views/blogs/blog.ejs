@@ -1,0 +1,70 @@
+<%- include('../partials/head',{title:locals.title}) %>
+<%- include('../partials/navbar') %>
+<div  class="d-flex flex-column gap-8 justify-content-center align-items-center" style="padding-top: 40px;">
+    <div class="d-flex flex-column w-50" style="gap:12px;">
+        <div class="d-flex align-items-center" style="gap:8px;">
+            <img src="<%= locals?.createdBy?.profileImageURL %>" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;"/>
+           <div>
+            <div>
+                By <%= locals.createdBy?.fullName || 'Anonymous' %>
+            </div>
+            <p class="text-secondary" style="font-size: 12px; margin: 0;">
+                <%= locals?.createdAt  %>
+            </p>
+           </div>
+        </div>
+        <% if (locals.coverImageURL) { %>
+                <img src="<%= locals.coverImageURL %>"/>
+        <% } %>
+        <h1>
+            <%= locals.title %>
+        </h1>
+        <h6 class="text-secondary">
+            <%= locals.description %>
+        </h6>
+        <p >
+            <%= locals.body %>
+        </p>
+        <div>
+            <div>
+                <h5>Comments 
+                    <% if (locals?.comments?.length) { %>
+                     (<%= locals.comments.length %>)
+                    <% } %>
+                </h5>
+            </div>
+           <% if (locals?.user?._id) { %>
+            <form action="/comments/<%= locals.id %>" method="post">
+                <div class="mb-3">
+                    <textarea class="form-control" name="content" rows="3" placeholder="Add a comment..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+           <% } %>
+            <% if (locals?.comments?.length) { %>
+                <ul class="list-unstyled mt-4">
+                    <% locals.comments.forEach(comment => { %>
+                        <li class="card px-3 py-2" style="gap: 12px;">
+                            <p class="mb-0 card-content">
+                                <%= comment?.content %>
+                            </p>
+                            <div class="d-flex align-items-start" style="gap:8px;">
+                                <img src="<%= comment?.user?.profileImageURL %>" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;"/>
+                                <div class="card-title">
+                                    <div>
+                                        <%= comment?.user?.fullName || 'Anonymous' %>
+                                    </div>
+                                    <p class="text-secondary" style="font-size: 12px; margin: 0;">
+                                        <%= comment?.createdAt %>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } %>
+
+        </div>
+    </div>
+</div>
+<%- include('../partials/scripts') %>

@@ -1,0 +1,28 @@
+<%- include('../partials/head',{title:'Create Blog'}) %>
+<%- include('../partials/navbar') %>
+<div  class="d-flex flex-column gap-8 justify-content-center align-items-center" style="padding-top: 40px;">
+    <form method="post" action="/blogs/" class="d-flex flex-column w-50" enctype="multipart/form-data">
+        <h3>Create a Blog</h3>
+        <div class="form-group mt-2">
+            <label for="coverImageURL">Choose Cover Image</label>
+            <input type="file" class="form-control" id="coverImageURL" aria-describedby="coverImageURL" name="coverImageURL" placeholder="Enter title">
+          </div>
+        <div class="form-group mt-2">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" aria-describedby="title" name="title" placeholder="Enter title">
+        </div>
+        <div class="form-group mt-2">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" aria-describedby="description" name="description" placeholder="Enter description">
+        </div>
+        <div class="form-group mt-2">
+            <label for="body">Body</label>
+            <textarea type="text" class="form-control" id="body" aria-describedby="body" name="body" placeholder="Enter body" rows="10"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Create</button>
+        
+      </form>
+</div>
+
+
+<%- include('../partials/scripts') %>

@@ -1,0 +1,24 @@
+<%- include('../partials/head',{title:'Sign up'}) %>
+<%- include('../partials/navbar') %>
+<div  class="d-flex flex-column gap-8 justify-content-center align-items-center" style="padding-top: 40px;">
+
+    <form method="post" action="/user/signup" class="d-flex flex-column w-50">
+        <h3>Signup</h3>
+        <div class="form-group">
+            <label for="fullName">Name</label>
+            <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter fullName">
+          </div>
+        <div class="form-group mt-2">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group mt-2">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
+      </form>
+</div>
+
+<%- include('../partials/scripts') %>

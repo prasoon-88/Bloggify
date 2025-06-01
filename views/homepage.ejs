@@ -1,0 +1,19 @@
+<%- include('./partials/head',{title:'Blogs'}) %>
+<%- include('./partials/navbar') %>
+<div  class="container" style="padding-top: 40px;gap: 16px;">
+  <div class="row" style="gap:12px;">
+    <% locals?.blogs?.forEach((blog) => { %>
+      <div class="card col-3" >
+          <% if (blog?.coverImageURL) { %>
+          <img class="card-img-top" src="<%= blog.coverImageURL %>" alt="Cover Image" style="object-fit: cover;">
+          <% } %>
+          <div class="card-body">
+            <h5 class="card-title"><%= blog.title %></h5>
+            <p class="card-text"><%= blog.description %>.</p>
+            <a href="/blogs/<%= blog._id %>" class="btn btn-primary">Read</a>
+          </div>
+        </div>
+     <% }) %>
+  </div>
+</div>
+<%- include('./partials/scripts') %>
